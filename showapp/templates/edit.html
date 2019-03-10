@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Edit item</h3>
+<form method="post">
+    控制1名称<input type="text" name="linename" autocomplete="off" required value="{{line.linename}}">
+    <input class="btn" type="submit" name="submit" value="update">
+</form>
+{% endblock %}
