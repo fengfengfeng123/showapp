@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>停电统计</h2>
+    <p>停电台区，共有{{tais | length}}个台区</p>
+    <ul class="line-list">
+        {% for tai in tais %}
+        <li>{{taiqu.name.decode()}}</li>
+        {% endfor %}
+    </ul>
+    <p>停电线路共有{{line1 | length}}个,中间控制共有{{kongs | length}}个</p>
+    <ul class="line-list">
+        {% for line in line1 %}
+        <li>{{line.linename.decode()}}</li>
+        {% endfor %}
+        {% for kong in kongs %}
+        <li>{{kong.kzname.decode()}}</li>
+        {% endfor %}
+    </ul>
+    <p>停电的公/专变，共有{{gongs | length}}个</p>
+    <ul class="line-list">
+        {% for gong in gongs %}
+        <li>{{gong.gbname.decode()}}</li>
+        {% endfor %}
+    </ul>
+    <p>停电的用户，共有{{yongs | length}}个</p>
+    <ul class="line-list">
+        {% for yong in yongs %}
+        <li>{{yong.number.decode()-yong.yhname.decode()-yong.telephone.decode()}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
